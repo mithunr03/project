@@ -1,0 +1,277 @@
+:root {
+    --primary-red: #c1121f;
+    --deep-burgundy: #780000;
+    --soft-cream: #fdf0d5;
+    --gold-accent: #ffb703;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.3);
+
+    --font-title: 'Great Vibes', cursive;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Raleway', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at center, #2e0608, #000000);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: var(--font-body);
+    color: white;
+}
+
+/* Dynamic Background */
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#heart-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Glass Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 4rem 3rem;
+    border-radius: 30px;
+    box-shadow: var(--shadow-premium), inset 0 0 30px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(193, 18, 31, 0.2);
+}
+
+/* Typography */
+.main-title {
+    font-family: var(--font-title);
+    font-size: 4rem;
+    background: linear-gradient(to right, #fff, #ffccd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    line-height: 1.2;
+}
+
+.sub-text {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+}
+
+/* Sophisticated Heart Animation */
+.heart-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    animation: luxuriousBeat 2s infinite ease-in-out;
+}
+
+.heart-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, #ff4d6d, #a4161a);
+    clip-path: path("M50 88 C20 60 0 45 0 25 C0 10 12 0 30 0 C40 0 47 6 50 13 C53 6 60 0 70 0 C88 0 100 10 100 25 C100 45 80 60 50 88 Z");
+    box-shadow: 0 0 30px rgba(255, 0, 50, 0.6);
+}
+
+@keyframes luxuriousBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 40px rgba(255, 0, 0, 0.8));
+    }
+}
+
+/* Buttons */
+.action-area {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #d90429, #ef233c);
+    color: white;
+    box-shadow: 0 10px 25px rgba(217, 4, 41, 0.5);
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.btn-primary:hover .btn-glow {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+/* Setup 'No' button for absolute positioning when moving */
+#no-btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 100;
+    /* Ensure it stays above */
+}
+
+/* Celebration Screen */
+.polaroid-frame {
+    background: white;
+    padding: 15px 15px 40px 15px;
+    display: inline-block;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transform: rotate(-3deg);
+    margin-bottom: 2rem;
+    animation: frameFloat 6s ease-in-out infinite alternate;
+}
+
+.character-img {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+@keyframes frameFloat {
+    from {
+        transform: rotate(-3deg) translateY(0);
+    }
+
+    to {
+        transform: rotate(2deg) translateY(-10px);
+    }
+}
+
+.celebration-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #ffb703;
+    margin-bottom: 1.5rem;
+}
+
+.romantic-quote {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sub-quote {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 1rem;
+    letter-spacing: 1px;
+    color: var(--gold-accent);
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .glass-card {
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+
+    .btn {
+        padding: 12px 30px;
+    }
+
+    .action-area {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    /* Ensure No button can move freely in column layout */
+    #no-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    #yes-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}

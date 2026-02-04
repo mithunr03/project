@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Raleway:wght@300;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-container">
+        <canvas id="heart-canvas"></canvas>
+    </div>
+
+    <main class="container">
+        <div id="card" class="glass-card">
+
+            <div id="question-content">
+                <div class="heart-container">
+                    <div class="heart-shape"></div>
+                    <div class="heart-shine"></div>
+                </div>
+
+                <h1 class="main-title">Will you be my Valentine?</h1>
+                <p class="sub-text">I have a question for you...</p>
+
+                <div class="action-area">
+                    <button id="yes-btn" class="btn btn-primary">
+                        <span class="btn-text">YES, I will!</span>
+                        <div class="btn-glow"></div>
+                        <i class="fa-solid fa-heart btn-icon"></i>
+                    </button>
+                    <button id="no-btn" class="btn btn-secondary">
+                        <span class="btn-text">No...</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="celebration-content" class="hidden">
+                <div class="polaroid-frame">
+                    <img src="./achu.png" alt="Happy Achu" class="character-img">
+                </div>
+                <h2 class="celebration-title">You made me the happiest! ❤️</h2>
+                <div class="quote-container">
+                    <p class="romantic-quote">"Wise men say, only fools rush in...<br>But I can't help falling in love
+                        with you."</p>
+                    <p class="sub-quote">Take my hand, take my whole life too...</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <audio id="bg-music" loop>
+        <source src="music.m4a" type="audio/mp4">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
